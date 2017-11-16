@@ -48,3 +48,17 @@ function getProductInfo(itemString) {
   )
 }
 
+function purchaseItem(num, id) {
+  quantity = num--;
+  var query = connection.query(
+    'UPDATE products SET ? WHERE item_id="' + id +'"',
+    {
+      stock_quantity: quantity
+    },
+    function(err, response) {
+      if(err) throw err;
+      console.log('Congrats! Item was purchased successfully');
+      quit();
+    }
+  )
+}
