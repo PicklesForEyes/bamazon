@@ -36,3 +36,15 @@ function drawProducts() {
   )
 }
 
+function getProductInfo(itemString) {
+  var id = itemString.substr(itemString.length - 4);
+  var query1 = connection.query(
+    'SELECT stock_quantity FROM products WHERE item_id="' + id + '"',
+    function(err, response) {
+      if(err) throw err;
+      var quantity = response[0].stock_quantity
+      purchaseItem(quantity, id);
+    }
+  )
+}
+
