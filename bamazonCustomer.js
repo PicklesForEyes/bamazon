@@ -22,7 +22,17 @@ function drawProducts() {
       for (var i = 0; i < res.length; i++) {
         productList.push(res[i].product_name + ' $' + res[i].price + ', id:' + res[i].item_id);
       }
-      console.log(productList)
+      inq.prompt([
+        {
+          type: 'list',
+          message: 'Select a product',
+          choices: productList,
+          name: 'userchoice'
+        }
+      ]).then(function(result) {
+        getProductInfo(result.userchoice);
+      })
     }
   )
 }
+
