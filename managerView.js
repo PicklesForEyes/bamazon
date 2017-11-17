@@ -138,17 +138,17 @@ function addProduct() {
     },
     {
       type: 'input',
-      message: 'Department name',
+      message: 'Department name:',
       name: 'department'
     },
     {
       type: 'input',
-      message: 'Product Price',
+      message: 'Product Price:',
       name: 'price'
     },
     {
       type: 'input',
-      message: 'Total stock',
+      message: 'Total stock:',
       name: 'stock'
     }
   ]).then(function(response) {
